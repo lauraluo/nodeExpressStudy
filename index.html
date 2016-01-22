@@ -1,0 +1,25 @@
+<script src="https://cdn.socket.io/socket.io-1.2.1.js">
+</script>
+<div style="height:400px;width:550px;margin:50px auto;margin-left:auto;border:solid 1px;background: rgb(246, 246, 253);">
+    <div style="margin-left: 35px;">
+        # 首页
+        <form action="#" role="form" style="margin-top: 90px;margin-left: 60px;">
+            # 欢迎进入首页！
+            <div style="margin-top: 145px;">
+                <a href="login" />登 陆<a/>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+window.onload = function() {
+    var socket = io.connect('/');
+    socket.on('connect', function() {
+        //客户端连接成功后发送消息'hello world!'
+        socket.send('hello world!');
+    });
+    socket.on('message', function(data) {
+        alert(data);
+    });
+};
+</script>
